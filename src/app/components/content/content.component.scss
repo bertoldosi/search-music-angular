@@ -4,6 +4,36 @@
   min-height: 30rem;
   background-color: #fff;
 
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
   margin: -3rem auto;
   border-radius: 0.3rem;
+
+  input {
+    width: 100%;
+    max-width: 25rem;
+    margin-top: 2rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--grey);
+  }
+
+  span {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+
+    select {
+      font-size: 1rem;
+      color: var(--dark-red);
+      border: none;
+      background-color: transparent;
+    }
+  }
+
+  .buttons {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+  }
 }
