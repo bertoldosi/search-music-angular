@@ -7,6 +7,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 import { HistoryComponent } from './pages/history/history.component';
+import { ResultComponent } from './components/result/result.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { HistoryComponent } from './pages/history/history.component';
     HomeComponent,
     SearchComponent,
     HistoryComponent,
+    ResultComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
