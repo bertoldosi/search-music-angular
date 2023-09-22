@@ -44,5 +44,14 @@ section {
         margin-left: 0.5rem;
       }
     }
+
+    @media (max-width: 690px) {
+      flex-direction: column;
+
+      li {
+        max-width: 100%;
+        margin: 0.3rem 0rem;
+      }
+    }
   }
 }
