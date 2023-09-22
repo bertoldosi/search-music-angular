@@ -1,0 +1,48 @@
+section {
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--light-grey);
+    margin-bottom: 1.5rem;
+
+    strong {
+      font-size: 1rem;
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    list-style: none;
+
+    li {
+      width: 100%;
+      max-width: 45%;
+      display: flex;
+      align-items: center;
+      overflow: auto;
+      border-radius: 0.3rem;
+      margin: 0.3rem 1rem;
+      cursor: pointer;
+      transition: 0.2s;
+
+      &:hover {
+        font-weight: 600;
+        background-color: var(--grey);
+      }
+
+      img {
+        width: 3rem;
+        height: 3rem;
+      }
+
+      span {
+        margin-left: 0.5rem;
+      }
+    }
+  }
+}
