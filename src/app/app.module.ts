@@ -8,6 +8,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 import { HistoryComponent } from './pages/history/history.component';
 import { ResultComponent } from './components/result/result.component';
+import { LayoutComponent } from './components/layout/layout.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ResultComponent } from './components/result/result.component';
     SearchComponent,
     HistoryComponent,
     ResultComponent,
+    LayoutComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
