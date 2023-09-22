@@ -9,6 +9,7 @@ import { SearchComponent } from './components/search/search.component';
 import { HistoryComponent } from './pages/history/history.component';
 import { ResultComponent } from './components/result/result.component';
 import { LayoutComponent } from './components/layout/layout.component';
+import { HistoryListComponent } from './components/history-list/history-list.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { LayoutComponent } from './components/layout/layout.component';
     HistoryComponent,
     ResultComponent,
     LayoutComponent,
+    HistoryListComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

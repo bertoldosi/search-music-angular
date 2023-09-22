@@ -47,13 +47,23 @@ input {
 }
 
 button {
+}
+
+.btn {
   outline: none;
   font-weight: 500;
   padding: 0.5rem;
   width: 10rem;
   color: var(--light-grey);
   background: none;
-  border: solid 0.1rem var(--light-green);
   border-radius: 0.2rem;
   cursor: pointer;
+
+  &-primary {
+    border: solid 0.1rem var(--light-green);
+  }
+
+  &-danger {
+    border: solid 0.1rem var(--dark-red);
+  }
 }
