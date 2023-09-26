@@ -30,20 +30,15 @@ export class HomeComponent {
         .find('/', {
           params,
         })
-        .subscribe(
-          (jsonData) => {
-            const results =
-              this.typeSearch == 'artist'
-                ? jsonData?.results?.artistmatches?.artist
-                : jsonData?.results?.albummatches?.album;
+        .subscribe((reponse) => {
+          const results =
+            this.typeSearch == 'artist'
+              ? reponse?.results?.artistmatches?.artist
+              : reponse?.results?.albummatches?.album;
 
-            this.homeSharedService.setResult(results || []);
-            this.showResult = true;
-          },
-          (error) => {
-            console.error('Erro ao buscar artista:', error);
-          }
-        );
+          this.homeSharedService.setResult(results || []);
+          this.showResult = true;
+        });
     } catch (error) {
       console.error('Erro ao buscar artista:', error);
     }
@@ -55,7 +50,6 @@ export class HomeComponent {
   }
 
   handleTypeSearchChange(newTypeSearch: string) {
-    console.log(newTypeSearch);
     this.typeSearch = newTypeSearch;
   }
 }
