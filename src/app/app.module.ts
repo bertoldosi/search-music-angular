@@ -12,6 +12,7 @@ import { HistoryComponent } from './pages/history/history.component';
 import { ResultComponent } from './components/result/result.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { HistoryListComponent } from './components/history-list/history-list.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { HistoryListComponent } from './components/history-list/history-list.com
     HistoryListComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  providers: [DatePipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

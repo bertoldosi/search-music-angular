@@ -5,19 +5,9 @@
   </header>
 
   <ul>
-    <li>
-      <span>Gustavo Lima</span>
-      <p>01/01/2023, 00:00</p>
-    </li>
-
-    <li>
-      <span>Gustavo Lima</span>
-      <p>01/01/2023, 00:00</p>
-    </li>
-
-    <li>
-      <span>Gustavo Lima</span>
-      <p>01/01/2023, 00:00</p>
+    <li *ngFor="let hist of history">
+      <span>{{ hist.value }}</span>
+      <p>{{ hist.date }}</p>
     </li>
   </ul>
 </div>
