@@ -1,3 +1,4 @@
 <main>
-  <app-search (searchEvent)="search($event)"></app-search>
+  <app-search (searchEvent)="search($event)" *ngIf="!showResult"></app-search>
+  <app-result (clearResult)="clearResult()" *ngIf="showResult"></app-result>
 </main>

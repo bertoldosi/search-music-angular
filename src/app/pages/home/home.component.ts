@@ -1,15 +1,23 @@
 import { Component } from '@angular/core';
-import { ApiService } from './home.api.service';
+import { ApiService, Artist, LastFmResponse } from './home.api.service';
+import { map } from 'rxjs/operators';
+import { HomeSharedService } from './home.shared.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
 })
 export class HomeComponent {
-  isResult: boolean = false;
-  result: any = {};
+  result: Artist[] | [];
+  showResult: boolean;
 
-  constructor(private apiService: ApiService) {}
+  constructor(
+    private apiService: ApiService,
+    private homeSharedService: HomeSharedService
+  ) {
+    this.showResult = false;
+    this.result = [];
+  }
 
   search(query: string) {
     try {
@@ -22,13 +30,32 @@ export class HomeComponent {
             format: 'json',
           },
         })
-        .subscribe((response) => {
-          this.result = response;
-
-          console.log(response);
-        });
+        .pipe(
+          map((response: any) => {
+            if (response && response.results) {
+              return response as LastFmResponse;
+            }
+            throw new Error('Resposta inválida');
+          })
+        )
+        .subscribe(
+          (jsonData) => {
+            const artists = jsonData.results.artistmatches.artist;
+            this.homeSharedService.setResult(artists);
+            this.result = artists;
+            this.showResult = true;
+          },
+          (error) => {
+            console.error('Erro ao buscar artista:', error);
+          }
+        );
     } catch (error) {
       console.error('Erro ao buscar artista:', error);
     }
+  }
+
+  clearResult() {
+    this.homeSharedService.setResult([]);
+    this.showResult = false;
   }
 }

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
-export interface Response {
+export interface LastFmResponse {
   results: Results;
 }
 
@@ -52,6 +53,9 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   public find(req: string, options?: any) {
-    return this.http.get(this.baseUrl + req, options);
+    return this.http.get<LastFmResponse>(this.baseUrl + req, {
+      ...options,
+      responseType: 'json',
+    });
   }
 }

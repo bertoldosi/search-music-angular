@@ -1,148 +1,17 @@
 <section>
   <header>
     <strong>Resultado</strong>
-    <a href="#" (click)="redirect()">Voltar</a>
+    <a href="#" (click)="clearResultClick()">Voltar</a>
   </header>
   <ul>
-    <li>
-      <img
-        src="../../../assets/image-example.png"
-        alt="foto do cantor ou album"
-      />
-      <span>Gustavo Lima</span>
-    </li>
-    <li>
-      <img
-        src="../../../assets/image-example.png"
-        alt="foto do cantor ou album"
-      />
-      <span>Gustavo Lima</span>
-    </li>
-    <li>
-      <img
-        src="../../../assets/image-example.png"
-        alt="foto do cantor ou album"
-      />
-      <span>Gustavo Lima</span>
-    </li>
-    <li>
-      <img
-        src="../../../assets/image-example.png"
-        alt="foto do cantor ou album"
-      />
-      <span>Gustavo Lima</span>
-    </li>
-    <li>
-      <img
-        src="../../../assets/image-example.png"
-        alt="foto do cantor ou album"
-      />
-      <span>Gustavo Lima</span>
-    </li>
-    <li>
-      <img
-        src="../../../assets/image-example.png"
-        alt="foto do cantor ou album"
-      />
-      <span>Gustavo Lima</span>
-    </li>
-    <li>
-      <img
-        src="../../../assets/image-example.png"
-        alt="foto do cantor ou album"
-      />
-      <span>Gustavo Lima</span>
-    </li>
-    <li>
-      <img
-        src="../../../assets/image-example.png"
-        alt="foto do cantor ou album"
-      />
-      <span>Gustavo Lima</span>
-    </li>
-    <li>
-      <img
-        src="../../../assets/image-example.png"
-        alt="foto do cantor ou album"
-      />
-      <span>Gustavo Lima</span>
-    </li>
-    <li>
-      <img
-        src="../../../assets/image-example.png"
-        alt="foto do cantor ou album"
-      />
-      <span>Gustavo Lima</span>
-    </li>
-    <li>
-      <img
-        src="../../../assets/image-example.png"
-        alt="foto do cantor ou album"
-      />
-      <span>Gustavo Lima</span>
-    </li>
-    <li>
-      <img
-        src="../../../assets/image-example.png"
-        alt="foto do cantor ou album"
-      />
-      <span>Gustavo Lima</span>
-    </li>
-    <li>
-      <img
-        src="../../../assets/image-example.png"
-        alt="foto do cantor ou album"
-      />
-      <span>Gustavo Lima</span>
-    </li>
-    <li>
-      <img
-        src="../../../assets/image-example.png"
-        alt="foto do cantor ou album"
-      />
-      <span>Gustavo Lima</span>
-    </li>
-    <li>
-      <img
-        src="../../../assets/image-example.png"
-        alt="foto do cantor ou album"
-      />
-      <span>Gustavo Lima</span>
-    </li>
-    <li>
-      <img
-        src="../../../assets/image-example.png"
-        alt="foto do cantor ou album"
-      />
-      <span>Gustavo Lima</span>
-    </li>
-    <li>
-      <img
-        src="../../../assets/image-example.png"
-        alt="foto do cantor ou album"
-      />
-      <span>Gustavo Lima</span>
-    </li>
-    <li>
-      <img
-        src="../../../assets/image-example.png"
-        alt="foto do cantor ou album"
-      />
-      <span>Gustavo Lima</span>
-    </li>
-    <li>
-      <img
-        src="../../../assets/image-example.png"
-        alt="foto do cantor ou album"
-      />
-      <span>Gustavo Lima</span>
-    </li>
-    <li>
-      <img
-        src="../../../assets/image-example.png"
-        alt="foto do cantor ou album"
-      />
-      <span>Gustavo Lima</span>
-    </li>
+    <a *ngFor="let artist of artists" href="{{ artist.url }}" target="_blank">
+      <li>
+        <img
+          src="{{ artist.image.url || imageDefaultUrl }}"
+          alt="{{ artist.name }}"
+        />
+        <span>{{ artist.name }}</span>
+      </li>
+    </a>
   </ul>
 </section>
