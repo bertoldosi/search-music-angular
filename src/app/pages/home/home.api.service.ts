@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { map } from 'rxjs';
 
 export interface LastFmResponse {
   results: Results;
@@ -11,7 +11,8 @@ export interface Results {
   'opensearch:totalResults': string;
   'opensearch:startIndex': string;
   'opensearch:itemsPerPage': string;
-  artistmatches: Artistmatches;
+  artistmatches?: Artistmatches;
+  albummatches?: Albummatches;
   '@attr': Attr;
 }
 
@@ -24,6 +25,10 @@ export interface OpensearchQuery {
 
 export interface Artistmatches {
   artist: Artist[];
+}
+
+export interface Albummatches {
+  album: Artist[];
 }
 
 export interface Artist {
@@ -53,9 +58,23 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   public find(req: string, options?: any) {
-    return this.http.get<LastFmResponse>(this.baseUrl + req, {
-      ...options,
-      responseType: 'json',
-    });
+    return this.http
+      .get<LastFmResponse>(this.baseUrl + req, {
+        ...options,
+        responseType: 'json',
+        params: {
+          ...options.params,
+          api_key: 'd4979de463b7894e5cea4d607647a294',
+          format: 'json',
+        },
+      })
+      .pipe(
+        map((response: any) => {
+          if (response && response.results) {
+            return response as LastFmResponse;
+          }
+          throw new Error('Resposta inválida');
+        })
+      );
   }
 }

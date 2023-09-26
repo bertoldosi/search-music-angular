@@ -8,41 +8,36 @@ import { HomeSharedService } from './home.shared.service';
   templateUrl: './home.component.html',
 })
 export class HomeComponent {
-  result: Artist[] | [];
   showResult: boolean;
+  typeSearch: string;
 
   constructor(
     private apiService: ApiService,
     private homeSharedService: HomeSharedService
   ) {
     this.showResult = false;
-    this.result = [];
+    this.typeSearch = 'artist';
   }
 
   search(query: string) {
+    const params = {
+      [this.typeSearch]: query,
+      method: `${this.typeSearch}.search`,
+    };
+
     try {
       this.apiService
         .find('/', {
-          params: {
-            artist: query,
-            method: 'artist.search',
-            api_key: 'd4979de463b7894e5cea4d607647a294',
-            format: 'json',
-          },
+          params,
         })
-        .pipe(
-          map((response: any) => {
-            if (response && response.results) {
-              return response as LastFmResponse;
-            }
-            throw new Error('Resposta inválida');
-          })
-        )
         .subscribe(
           (jsonData) => {
-            const artists = jsonData.results.artistmatches.artist;
-            this.homeSharedService.setResult(artists);
-            this.result = artists;
+            const results =
+              this.typeSearch == 'artist'
+                ? jsonData?.results?.artistmatches?.artist
+                : jsonData?.results?.albummatches?.album;
+
+            this.homeSharedService.setResult(results || []);
             this.showResult = true;
           },
           (error) => {
@@ -57,5 +52,10 @@ export class HomeComponent {
   clearResult() {
     this.homeSharedService.setResult([]);
     this.showResult = false;
+  }
+
+  handleTypeSearchChange(newTypeSearch: string) {
+    console.log(newTypeSearch);
+    this.typeSearch = newTypeSearch;
   }
 }

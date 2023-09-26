@@ -1,9 +1,14 @@
 <div class="search">
   <span>
     Pesquisando por
-    <select name="seach-type" id="seach-type">
+    <select
+      name="seach-type"
+      id="seach-type"
+      [(ngModel)]="typeSearch"
+      (ngModelChange)="onTypeSearchChange($event)"
+    >
       <option value="artist">Artista</option>
-      <option value="artist">Album</option>
+      <option value="album">Album</option>
     </select>
   </span>
 
