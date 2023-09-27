@@ -10,6 +10,7 @@ import { HomeLocalStorageService } from './home.storage.service';
 })
 export class HomeComponent {
   showResult: boolean;
+  loading: boolean;
   typeSearch: string;
   keyHistory: string;
 
@@ -20,6 +21,7 @@ export class HomeComponent {
     private datePipe: DatePipe
   ) {
     this.showResult = false;
+    this.loading = false;
     this.typeSearch = 'artist';
     this.keyHistory = 'search-music-history';
   }
@@ -54,6 +56,7 @@ export class HomeComponent {
   }
 
   search(query: string) {
+    this.loading = true;
     this.persistHistory(query);
 
     const params = {
@@ -73,6 +76,7 @@ export class HomeComponent {
               : reponse?.results?.albummatches?.album;
 
           this.homeSharedService.setResult(results || []);
+          this.loading = false;
           this.showResult = true;
         });
     } catch (error) {

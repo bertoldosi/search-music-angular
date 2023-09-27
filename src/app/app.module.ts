@@ -13,6 +13,7 @@ import { ResultComponent } from './components/result/result.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { HistoryListComponent } from './components/history-list/history-list.component';
 import { DatePipe } from '@angular/common';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { DatePipe } from '@angular/common';
     ResultComponent,
     LayoutComponent,
     HistoryListComponent,
+    LoadingComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [DatePipe],

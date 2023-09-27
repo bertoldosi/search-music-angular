@@ -2,7 +2,9 @@
   <app-search
     (searchEvent)="search($event)"
     (typeSearchChange)="handleTypeSearchChange($event)"
-    *ngIf="!showResult"
+    *ngIf="!showResult && !loading"
   ></app-search>
   <app-result (clearResult)="clearResult()" *ngIf="showResult"></app-result>
+
+  <app-loading *ngIf="loading"></app-loading>
 </main>
