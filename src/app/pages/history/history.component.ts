@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { HomeLocalStorageService } from '../home/home.storage.service';
+import { Component } from '@angular/core';
 
 export interface HistoryType {
   value: string;
@@ -11,19 +10,4 @@ export interface HistoryType {
   templateUrl: './history.component.html',
   styleUrls: ['./history.component.scss'],
 })
-export class HistoryComponent implements OnInit {
-  keyHistory: string;
-  history: HistoryType[] | [];
-
-  constructor(private homeLocalStorageService: HomeLocalStorageService) {
-    this.keyHistory = 'search-music-history';
-    this.history = [];
-  }
-  ngOnInit(): void {
-    const valuesLocalStorage = this.homeLocalStorageService.getItem(
-      this.keyHistory
-    );
-
-    this.history = valuesLocalStorage;
-  }
-}
+export class HistoryComponent {}

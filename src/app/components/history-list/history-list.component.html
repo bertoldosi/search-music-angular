@@ -1,13 +1,21 @@
 <div class="history-list">
   <header>
     <strong>Histórico</strong>
-    <button class="btn btn-danger">Apagar histórico</button>
+    <button
+      class="btn btn-danger"
+      (click)="resetHistory()"
+      *ngIf="history.length > 0"
+    >
+      Apagar histórico
+    </button>
   </header>
 
-  <ul>
+  <ul *ngIf="history.length > 0">
     <li *ngFor="let hist of history">
       <span>{{ hist.value }}</span>
       <p>{{ hist.date }}</p>
     </li>
   </ul>
+
+  <h2 *ngIf="history.length === 0">Sem registros</h2>
 </div>
