@@ -28,27 +28,29 @@ export class HomeComponent {
     const dateNow = new Date();
     var dateFormated = this.datePipe.transform(dateNow, 'dd/MM/yyyy, h:mm a');
 
-    const valuesLocalStorageString = this.homeLocalStorageService.getItem(
+    const valuesLocalStorage = this.homeLocalStorageService.getItem(
       this.keyHistory
     );
 
-    const valuesLocalStorageList =
-      valuesLocalStorageString === null
-        ? []
-        : JSON.parse(valuesLocalStorageString);
+    if (valuesLocalStorage) {
+      const newHistory = [
+        ...valuesLocalStorage,
+        {
+          value: query,
+          date: dateFormated,
+        },
+      ];
+      this.homeLocalStorageService.setItem(this.keyHistory, newHistory);
+    } else {
+      const newHistory = [
+        {
+          value: query,
+          date: dateFormated,
+        },
+      ];
 
-    const newHistory = [
-      ...valuesLocalStorageList,
-      {
-        value: query,
-        date: dateFormated,
-      },
-    ];
-
-    this.homeLocalStorageService.setItem(
-      this.keyHistory,
-      JSON.stringify(newHistory)
-    );
+      this.homeLocalStorageService.setItem(this.keyHistory, newHistory);
+    }
   }
 
   search(query: string) {

@@ -20,15 +20,10 @@ export class HistoryComponent implements OnInit {
     this.history = [];
   }
   ngOnInit(): void {
-    const valuesLocalStorageString = this.homeLocalStorageService.getItem(
+    const valuesLocalStorage = this.homeLocalStorageService.getItem(
       this.keyHistory
     );
 
-    const valuesLocalStorageList =
-      valuesLocalStorageString === null
-        ? []
-        : JSON.parse(valuesLocalStorageString);
-
-    this.history = valuesLocalStorageList;
+    this.history = valuesLocalStorage;
   }
 }
