@@ -1,6 +1,7 @@
 <main>
   <app-search
     (searchEvent)="search($event)"
+    [typeSearch]="typeSearch"
     (typeSearchChange)="handleTypeSearchChange($event)"
     *ngIf="!showResult && !loading"
   ></app-search>

@@ -6,11 +6,17 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent {
-  @Output() searchEvent = new EventEmitter<string>();
-  query: string = '';
+  query: string;
 
+  @Input() typeSearch: string;
+
+  @Output() searchEvent = new EventEmitter<string>();
   @Output() typeSearchChange = new EventEmitter<string>();
-  typeSearch: string = 'artist';
+
+  constructor() {
+    this.query = '';
+    this.typeSearch = 'artist';
+  }
 
   onSearchClick() {
     this.searchEvent.emit(this.query);
