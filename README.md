@@ -1,27 +1,69 @@
-# SearchMusic
+## 🖥 Visualização:
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
+### Web
 
-## Development server
+<p align="center">
+  <img alt="Web Preview" title="Web-preview" src="https://github.com/bertoldosi/search-music-angular/assets/42129177/9297a04d-b73b-4506-aed1-7a3b1242d428" width="800px">
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Mobile
 
-## Code scaffolding
+<p align="center">
+  <img alt="Web Preview" title="Web-preview" src="https://github.com/bertoldosi/search-music-angular/assets/42129177/e71269ad-b360-4d4b-8068-fb6541116bd1" width="300px">
+  
+</p>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## 📖 Sobre:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Uma aplicação desenvolvida em framework Angular, no qual é possível buscar por artistas e ambuns.
 
-## Running unit tests
+---
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## ⚙️ Funcionalidades:
 
-## Running end-to-end tests
+- [x] Buscar
+- [x] Listar resultados
+- [x] Listar históricos de busca
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+---
 
-## Further help
+## 🚀 Tecnologias e Libs Utilizadas:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- HTML
+- Scss
+- Typescript
+- Angular
+
+---
+
+## ⌨ Rodando o projeto localmente:
+
+```bash
+
+# Baixe o repositório na barra superior a direita
+
+ou
+
+# Clonar o repositório
+git clone https://github.com/bertoldosi/expense-manager
+
+# Entre no diretório e acesse com seu Editor de texto preferido
+cd expense-manager
+
+# Baixar as dependências
+npm i
+
+# Executar o servidor
+npm run dev
+```
+
+Feito isso, abra o seu navegador e acesse `http://localhost:4200/`
+
+---
+
+Para acessar a aplicação hospedada clique em: https://expense-manager-ui-public.vercel.app
+
+---
+
+Desenvolvido por Matheus Bertoldo !
