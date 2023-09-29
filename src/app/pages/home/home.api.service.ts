@@ -67,7 +67,7 @@ export class ApiService {
         responseType: 'json',
         params: {
           ...options.params,
-          api_key: environment.apiKey, // Use environment.apiKey aqui
+          api_key: environment.apiKey,
           format: 'json',
         },
       })
