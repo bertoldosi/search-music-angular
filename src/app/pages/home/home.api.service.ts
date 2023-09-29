@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment'; // Importe a variável de ambiente
 import { map } from 'rxjs';
 
 export interface LastFmResponse {
@@ -53,9 +54,11 @@ export interface Attr {
   providedIn: 'root',
 })
 export class ApiService {
-  private baseUrl: string = 'https://ws.audioscrobbler.com/2.0';
+  private baseUrl: string;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.baseUrl = 'https://ws.audioscrobbler.com/2.0';
+  }
 
   public find(req: string, options?: any) {
     return this.http
@@ -64,7 +67,7 @@ export class ApiService {
         responseType: 'json',
         params: {
           ...options.params,
-          api_key: 'd4979de463b7894e5cea4d607647a294',
+          api_key: environment.apiKey, // Use environment.apiKey aqui
           format: 'json',
         },
       })
