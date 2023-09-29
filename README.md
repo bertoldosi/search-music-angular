@@ -46,10 +46,10 @@ Uma aplicação desenvolvida em framework Angular, no qual é possível buscar p
 ou
 
 # Clonar o repositório
-git clone https://github.com/bertoldosi/expense-manager
+git clone https://github.com/bertoldosi/search-music-angular
 
 # Entre no diretório e acesse com seu Editor de texto preferido
-cd expense-manager
+cd search-music-angular
 
 # Baixar as dependências
 npm i
@@ -62,7 +62,7 @@ Feito isso, abra o seu navegador e acesse `http://localhost:4200/`
 
 ---
 
-Para acessar a aplicação hospedada clique em: https://expense-manager-ui-public.vercel.app
+Para acessar a aplicação hospedada clique em: https://search-music-angular.vercel.app
 
 ---
 
